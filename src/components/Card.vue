@@ -8,7 +8,7 @@
         <div
           class="card__content"
           :style="{
-            backgroundImage: `url(${'http://localhost:5173/src/assets/' + imgBackFace})`
+            backgroundImage: `url(${'https://pokemon-game-jade.vercel.app/' + imgBackFace})`
           }"
         ></div>
       </div>
