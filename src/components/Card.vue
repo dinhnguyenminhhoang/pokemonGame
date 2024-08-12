@@ -56,9 +56,9 @@ export default {
   display: inline-block;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  width: 90px;
+  width: 100%;
   cursor: pointer;
-  height: 120px;
+  height: 180px;
 }
 .card__inner {
   width: 100%;
@@ -77,10 +77,16 @@ export default {
   backface-visibility: hidden;
   border-radius: 1rem;
   padding: 1rem;
-  box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.card__face-front {
+  box-shadow: 0px 3px 10px 3px rgba(255, 255, 255, 0.2);
+}
+.card__face-back {
+  box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.2);
+  background: var(--light);
 }
 .card__face-front .card__content {
   background-image: url('../assets/images/icon_back.png');

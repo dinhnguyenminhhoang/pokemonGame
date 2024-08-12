@@ -1,7 +1,6 @@
 <template>
   <main>
     <div class="screen">
-      <h1>hello view</h1>
       <div class="card__wrapper">
         <card-flip
           v-for="(card, index) in settings.cardsContext"
@@ -15,17 +14,20 @@
           ref="cards"
         />
       </div>
+      <coppy-right />
     </div>
   </main>
 </template>
 
 <script>
 import CardFlip from '@/components/Card.vue'
+import CoppyRight from '@/components/CoppyRight.vue'
 import { shuffled } from '@/utils/array'
 import { useRoute } from 'vue-router'
 export default {
   components: {
-    CardFlip
+    CardFlip,
+    CoppyRight
   },
   data() {
     const { params } = useRoute()
@@ -83,10 +85,30 @@ export default {
 }
 </script>
 <style scoped lang="css">
+.screen {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 60px;
+}
 .card__wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+  gap: 1rem;
+  justify-content: center; /* Center the grid horizontally */
   width: 100%;
   height: 100%;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .card__wrapper {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .card__wrapper {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+  }
 }
 </style>
